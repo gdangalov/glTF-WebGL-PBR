@@ -56,3 +56,19 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+## TinyEXR
+
+https://github.com/syoyo/tinyexr
+
+Used to display EXR images as textures.
+
+>3-clause BSD
+>
+>Author: Syoyo Fujita (syoyo@lighttransport.com)
+>
+>`tinyexr` uses miniz, which is developed by Rich Geldreich <richgel99@gmail.com>, and licensed under public domain.
+>
+>`tinyexr` tools uses stb, which is licensed under public domain: https://github.com/nothings/stb
+>
+>`tinyexr` uses some code from OpenEXR, which is licensed under 3-clause BSD license.
