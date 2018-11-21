@@ -463,6 +463,9 @@ class gltfViewer
             case(ImageType_Hdr):
                 extension = ".hdr";
                 break;
+            case(ImageType_Exr):
+                extension = ".exr";
+                break;
             default:
                 console.error("Unknown image type: " + type);
                 return;

@@ -1,5 +1,6 @@
 const ImagaType_Jpeg = "image/jpeg";
 const ImageType_Hdr = "image/vnd.radiance";
+const ImageType_Exr = "image/exr";
 
 class gltfImage
 {
@@ -58,6 +59,11 @@ class gltfImage
             return false;
         }
 
+        if (getExtension(this.uri) === "exr")
+        {
+            return this.setImageFromExrUri();
+        }
+
         this.image.src = this.uri;
         return true;
     }
@@ -107,5 +113,10 @@ class gltfImage
         reader.readAsDataURL(bufferFile);
 
         return true;
+    }
+
+    setImageFromExrUri()
+    {
+        return false;
     }
 };
