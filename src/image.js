@@ -117,6 +117,31 @@ class gltfImage
 
     setImageFromExrUri()
     {
-        return false;
+        const request = new XMLHttpRequest();
+        request.responseType = "arraybuffer";
+
+        const self = this;
+        request.onload = function()
+        {
+            const data = request.response;
+            const exrImage = new Module.EXRLoader(data);
+            const imageBytes = exrImage.getBytes();
+            const imageData = new ImageData(new Uint8ClampedArray(imageBytes), exrImage.width(), exrImage.height());
+            self.image.src = self.getUriFromImageData(imageData);
+        }
+
+        request.open("GET", this.uri, true);
+        request.send();
+        return true;
+    }
+
+    getUriFromImageData(imagedata)
+    {
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        canvas.width = imagedata.width;
+        canvas.height = imagedata.height;
+        context.putImageData(imagedata, 0, 0);
+        return canvas.toDataURL();
     }
 };
