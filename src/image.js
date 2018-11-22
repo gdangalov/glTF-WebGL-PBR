@@ -125,8 +125,9 @@ class gltfImage
         {
             const data = request.response;
             const exrImage = new Module.EXRLoader(data);
-            const imageBytes = exrImage.getBytes();
-            const imageData = new ImageData(new Uint8ClampedArray(imageBytes), exrImage.width(), exrImage.height());
+            const imageBytes = exrImage.getBytes()
+            const convertedImage = imageBytes.map(num => num * 255);
+            const imageData = new ImageData(new Uint8ClampedArray(convertedImage), exrImage.width(), exrImage.height());
             self.image.src = self.getUriFromImageData(imageData);
         }
 
